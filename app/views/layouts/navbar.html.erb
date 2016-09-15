@@ -1,0 +1,17 @@
+<div class='navbar navbar-default navbar-static-top'>
+  <div class='container'>
+    <%= link_to 'CSMC', root_path, class: 'navbar-brand'%>
+    <ul class='nav navbar-nav'>
+      <% if user_signed_in? %>
+          <li>
+            <%= link_to 'Edit User Info', edit_user_registration_path %>
+          </li>
+      <% end %>
+    </ul>
+    <% if user_signed_in? %>
+        <%= link_to 'Logout', destroy_user_session_path, :method => :delete, class: 'navbar-brand navbar-right' %>
+    <% else %>
+        <%= link_to 'Sign In', new_user_session_path, class: 'navbar-brand navbar-right' %>
+    <% end %>
+  </div>
+</div>
