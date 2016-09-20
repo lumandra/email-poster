@@ -7,7 +7,7 @@
       <h4>Title: </h4><%= @reports.title%>
       <h4>Email to:</h4><%= @reports.email_to%>
     </br>
-    <div style="text-align: center">
+    <div style="text-align: center; margin-top: 10px;">
       <%= link_to 'Edit', edit_report_path(@reports), class: 'btn btn-warning' %>
       <%= link_to 'Destroy', @reports, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
       <%= link_to 'Back', reports_path, class: 'back-button' %>

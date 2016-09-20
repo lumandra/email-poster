@@ -17,9 +17,9 @@ report =
         if data.errors
           $(".reports").prepend "<div class='alert alert-danger'>Not stored</div>"
         else
-          $(".reports").prepend "<div class='alert alert-success'>Subscribed</div>"
-          setTimeout "$('.alert').hide();", 3000 
+          $(".reports").prepend "<div class='alert alert-success'>#{data.message}</div>"
+          setTimeout "$('.alert').hide();", 3000
 
 
-$ ->
+$(document).on 'turbolinks:load', ->
   report.init()

@@ -5,13 +5,18 @@ class UserReportsController < ApplicationController
 
   def subscribe
     report = Report.find(params[:user_report_id])
-    if params[:subscribe] == 'true'
-      report.users << current_user
-    else
-      report.users.delete current_user
-    end
+    message =
+      if params[:subscribe] == 'true'
+        report.users << current_user
 
-    render json: { errors: false }
+        'Subscribed'
+      else
+        report.users.delete current_user
+
+        'Unsubscribed'
+      end
+
+    render json: { errors: false, message: message }
 
   rescue Exception => e
     render json: { errors: e }

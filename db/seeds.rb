@@ -9,7 +9,7 @@ user = User.new email: "default@user.com", password: '19041988g', password_confi
 user.skip_confirmation!
 user.save!
 
-report = Report.new title: 'Main Report', email_to: 'eb3f9d54547d346e6936@cloudmailin.net'
+report = Report.new title: 'Main Report'
 report.save
 
 report.users << user
