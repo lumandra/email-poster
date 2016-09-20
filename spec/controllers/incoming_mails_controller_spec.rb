@@ -5,29 +5,32 @@ RSpec.describe IncomingMailsController, type: :controller do
   routes { Rails.application.routes }
 
   describe 'POST #create' do
+    let!(:from) { 'pecha7x@gmail.com' }
+    let!(:to)   { '69f605a02e17db7923e8@cloudmailin.net' }
 
-    let!(:pdf)  { fixture_file_upload('test_pdf.pdf', 'application/pdf') }
-    let!(:user) { FactoryGirl.create :user, email: 'pecha7x@gmail.com' }
-    let(:params){
+    let!(:pdf)       { fixture_file_upload('test_pdf.pdf', 'application/pdf') }
+    let!(:user)      { FactoryGirl.create :user, email: from, confirmed_at: DateTime.now }
+    let!(:report)    { FactoryGirl.create :report, email_to: to }
+
+    let(:reports)    { user.reports }
+    let(:emails)     { user.emails }
+    let(:subject)    { 'Daily report' }
+    let(:params)     {
       {
        "plain"=>"Hehehehhe\n",
        "html"=>"<div dir=\"ltr\">Hehehehhe</div>\n",
        "reply_plain"=>"",
        "headers"=>{
-         "Received"=>{
-           "0"=>"by mail-oi0-f52.google.com with SMTP id w11so60877045oia.2 for <69f605a02e17db7923e8@cloudmailin.net>; Thu, 15 Sep 2016 02:22:05 -0700",
-           "1"=>"by 10.157.39.101 with HTTP; Thu, 15 Sep 2016 02:20:17 -0700"
-         },
          "Date"=>"Thu, 15 Sep 2016 12:20:17 +0300",
-         "From"=>"Artoym P <pecha7x@gmail.com>",
-         "To"=>"69f605a02e17db7923e8@cloudmailin.net",
+         "From"=>"Artoym P <#{from}>",
+         "To"=>to,
          "Message-ID"=>"<CAD8F-n41vEi2Lc2d5iOKkJrx_VyKF1MVO0VFgwb2JA9BxuNeNg@mail.gmail.com>",
-         "Subject"=>"Hellooooo",
+         "Subject"=> subject,
        },
        "envelope"=>{
-         "to"=>"69f605a02e17db7923e8@cloudmailin.net",
-         "recipients"=>{"0"=>"69f605a02e17db7923e8@cloudmailin.net"},
-         "from"=>"pecha7x@gmail.com",
+         "to"=>to,
+         "recipients"=>{"0"=>to},
+         "from"=>from,
          "helo_domain"=>"mail-oi0-f52.google.com",
          "remote_ip"=>"209.85.218.52",
          "spf"=>{"result"=>"neutral", "domain"=>"gmail.com"}
@@ -38,13 +41,14 @@ RSpec.describe IncomingMailsController, type: :controller do
       }
     }
 
-    it 'redirect to new store path with success' do
+    it 'upload emails and ensure report' do
+      report.users << user
       process :create, method: :post, params: params
-      expect(response.status).to be 200
+      expect(response.status).to eq 200
 
       user.reload
-      expect(user.emails.size).to be 1
-      expect(user.emails.size).to be 1
+      expect(emails.size).to eq 1
+      expect(emails[0].subject).to eq subject
     end
   end
 end
