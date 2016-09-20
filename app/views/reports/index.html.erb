@@ -1,0 +1,31 @@
+<%unless notice.nil? %>
+    <div id='notice' class="alert alert-success"><%= notice %></div>
+<%end%>
+<div class="container reports">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Email_to</th>
+        <th style="width: 25%">Actions</th>
+      </tr>
+    </thead>
+     <tbody>
+     <h1>Reports</h1>
+      <% @reports.each do |report| %>
+        <tr>
+          <td><%= report.title%></td>
+          <td><%= report.email_to%></td>
+          <td style="text-align: center">
+            <%= link_to 'Show', report, class: 'btn btn-primary' %>
+            <%= link_to 'Edit', edit_report_path(report), class: 'btn btn-warning' %>
+            <%= link_to 'Destroy', report, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= link_to 'New Report', new_report_path , class: 'btn btn-primary'%>
+</div>
+
+

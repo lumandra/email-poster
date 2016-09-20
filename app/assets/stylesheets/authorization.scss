@@ -1,5 +1,5 @@
 .authorization, .registration, .forgot-password,
-.confirmation-instructions, .change-password {
+.confirmation-instructions, .change-password, .reports, .show-reports {
 
   .card-container.card {
     max-width: 350px;
@@ -33,3 +33,15 @@
     max-width: 450px;
   }
 }
+
+.reports {
+  .back-button {
+    margin: 0 auto;
+    display: table;
+  }
+}
+
+.show-reports {
+  max-width: 750px;
+}
+
