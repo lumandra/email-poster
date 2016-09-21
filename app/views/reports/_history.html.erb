@@ -1,4 +1,37 @@
 <div>
   <h1>History</h1>
-
+  <table class="table table-bordered">
+    <thead>
+    <tr>
+      <th>Sender</th>
+      <th>Subject</th>
+      <th>Date</th>
+      <th>Attachment name</th>
+      <th>Attachment type</th>
+      <th>Status</th>
+      <th>Received error</th>
+    </tr>
+    </thead>
+    <tbody>
+      <% emails.each do |email| %>
+        <tr>
+          <td><%= current_user.email %></td>
+          <td><%= email.subject %></td>
+          <td><%= email.created_at %></td>
+          <td>
+            <% email.attachments.each do |attach| %>
+              <%= attach.original_filename %>,
+            <% end %>
+          </td>
+          <td>
+            <% email.attachments.each do |attach| %>
+                <%= attach.content_type %>,
+            <% end %>
+          </td>
+          <td><%= email.status %></td>
+          <td><%= email.error_message %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>
