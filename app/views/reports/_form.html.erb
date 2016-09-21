@@ -16,6 +16,18 @@
     <%= f.text_field :title, autocomplete: "off", class: "form-control" %>
   </div>
 
+  <div class="form-group">
+    <%= f.label :email_to %>
+    <div class="row">
+      <div class="col-md-6">
+        <%= f.text_field :email_to_prefix, autocomplete: "off", class: "form-control" %>
+      </div>
+      <div class="col-md-6">
+        <%= Report::EMAILTO_POSTFIX %>
+      </div>
+    </div>
+  </div>
+
   <div class="actions">
     <%= f.submit 'Submit', class: "btn btn-success"  %>
   </div>

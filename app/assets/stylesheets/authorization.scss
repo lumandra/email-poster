@@ -1,5 +1,5 @@
 .authorization, .registration, .forgot-password,
-.confirmation-instructions, .change-password, .reports, .show-reports {
+.confirmation-instructions, .change-password, .reports, .show-reports, .history {
 
   .card-container.card {
     max-width: 350px;
@@ -26,6 +26,9 @@
         text-align: center;
       }
   }
+  .card-container.card.show-reports-content {
+    margin-right: 30px;
+  }
 }
 
 .forgot-password, .confirmation-instructions, .change-password {
@@ -42,6 +45,16 @@
 }
 
 .show-reports {
+  .card-container.card {
+    max-width: 450px;
+  }
   max-width: 750px;
 }
 
+.history, .show-reports-content {
+  display: inline-block;
+}
+
+.history {
+  max-width: 750;
+}

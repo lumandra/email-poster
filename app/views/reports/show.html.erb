@@ -2,10 +2,12 @@
     <div id='notice' class="alert alert-success"><%= notice %></div>
 <%end%>
 <div class="container show-reports">
-  <div class="card card-container">
+  <div class="card card-container show-reports-content">
     <h1 class="title">Show report</h1>
       <h4>Title: </h4><%= @reports.title%>
       <h4>Email to:</h4><%= @reports.email_to%>
+    <h4><%=@reports.users.last.inspect%>
+    </h4>
     </br>
     <div style="text-align: center; margin-top: 10px;">
       <%= link_to 'Edit', edit_report_path(@reports), class: 'btn btn-warning' %>
@@ -13,5 +15,6 @@
       <%= link_to 'Back', reports_path, class: 'back-button' %>
     </div>
   </div>
+  <%= render 'history' %>
 </div>
 

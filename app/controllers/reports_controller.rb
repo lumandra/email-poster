@@ -65,7 +65,7 @@ class ReportsController < ApplicationController
     end
 
     def report_params
-      params.require(:report).permit(:title, :email_to)
+      params.require(:report).permit(:title, :email_to_prefix)
     end
 
     def check_admin

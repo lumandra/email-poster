@@ -3,24 +3,34 @@ class IncomingMailsController < ApplicationController
   skip_before_action :authenticate_user!
 
   def create
-    user = User.find_by(email: params[:envelope][:from])
-    raise "User with email #{params[:envelope][:from]} not found" if user.blank?
-
-    report = user.reports.find_by(email_to: params[:envelope][:to])
-    raise "Report with email_to #{params[:envelope][:to]} not found" if report.blank?
-
-    email = user.emails.build(
-      subject:     params[:headers]['Subject'],
-      body:        params[:plain],
-      attachments: params[:attachments].values,
-      report:      report
+    email = Email.create(
+        subject:     params[:headers]['Subject'],
+        body:        params[:plain],
+        attachments: params[:attachments].values,
     )
 
-    if email.save
-      render plain: 'success', :status => 200
+    report = Report.find_by(email_to: params[:envelope][:to])
+
+    if report.blank?
+      er = "Report with email_to #{params[:envelope][:to]} not found"
+
+      email.status = 'error'
+      email.error_messages = er
+      email.save
+
+      raise er
     else
-      raise email.errors.full_messages.join(', ')
+      email.report = report
+
+      if email.save
+        render plain: 'success', :status => 200
+      else
+        raise email.errors.full_messages.join(', ')
+      end
     end
+    
+
+
 
   rescue Exception => e
     render plain: 'error', :status => 400
