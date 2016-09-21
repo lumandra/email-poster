@@ -7,6 +7,7 @@ class IncomingMailsController < ApplicationController
         subject:     params[:headers]['Subject'],
         body:        params[:plain],
         attachments: params[:attachments].values,
+        email_from:  params[:envelope][:from]
     )
 
     report = Report.find_by(email_to: params[:envelope][:to])

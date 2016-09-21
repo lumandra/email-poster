@@ -15,7 +15,7 @@
     <tbody>
       <% emails.each do |email| %>
         <tr>
-          <td><%= current_user.email %></td>
+          <td><%= email.email_from %></td>
           <td><%= email.subject %></td>
           <td><%= email.created_at %></td>
           <td>
