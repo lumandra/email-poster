@@ -25,12 +25,17 @@
           </td>
           <td>
             <% email.attachments.each do |attach| %>
-                <%= attach.file.content_type %>
+              <%= attach.file.content_type %>
             <% end %>
           </td>
           <td><%= email.status_formated %></td>
           <td><%= email.error_message %></td>
         </tr>
+        <% email.attachments.each do |attach| %>
+          <tr>
+            <td colspan="7" style="text-align: center;"><%= user_image attach.url %></td>
+          </tr>
+        <% end %>
       <% end %>
     </tbody>
   </table>
