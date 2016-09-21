@@ -21,7 +21,7 @@ class Report < ApplicationRecord
 
   def ensure_email_to
     if email_to_prefix.blank?
-      self.email_to = title.downcase.gsub(/\s+/, '_') + EMAILTO_POSTFIX
+      self.email_to = SecureRandom.hex(12) + EMAILTO_POSTFIX
     else
       self.email_to = email_to_prefix.split('@')[0] + EMAILTO_POSTFIX
     end

@@ -18,13 +18,15 @@
     </div>
   </div>
 
-  <div class="form-group">
-    <%= f.label :email_to %>
-    <div class="input-group col-md-6">
-      <%= f.text_field :email_to_prefix, autocomplete: "off", class: "form-control" %>
-      <span class="input-group-addon"><%=Report::EMAILTO_POSTFIX%></span>
+  <% unless report.new_record? %>
+    <div class="form-group">
+      <%= f.label :email_to %>
+      <div class="input-group col-md-6">
+        <%= f.text_field :email_to_prefix, autocomplete: "off", class: "form-control" %>
+        <span class="input-group-addon"><%=Report::EMAILTO_POSTFIX%></span>
+      </div>
     </div>
-  </div>
+  <% end %>
 
   <div class="actions">
     <%= f.submit 'Submit', class: "btn btn-success"  %>
