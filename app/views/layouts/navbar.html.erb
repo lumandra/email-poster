@@ -4,13 +4,8 @@
     <ul class='nav navbar-nav'>
       <% if user_signed_in? %>
           <li>
-            <%= link_to 'Manage User Reports', user_reports_path %>
+            <%= link_to 'Reports', reports_path %>
           </li>
-          <% if current_user.is_admin? %>
-            <li>
-              <%= link_to 'Reports', reports_path %>
-            </li>
-          <% end %>
       <% end %>
     </ul>
     <% if user_signed_in? %>

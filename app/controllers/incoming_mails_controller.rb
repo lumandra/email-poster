@@ -3,7 +3,7 @@ class IncomingMailsController < ApplicationController
   skip_before_action :authenticate_user!
 
   def create
-    email = Email.create(
+    email = Email.new(
         subject:     params[:headers]['Subject'],
         body:        params[:plain],
         attachments: params[:attachments].values,
@@ -12,13 +12,13 @@ class IncomingMailsController < ApplicationController
     report = Report.find_by(email_to: params[:envelope][:to])
 
     if report.blank?
-      er = "Report with email_to #{params[:envelope][:to]} not found"
+      msg = "Report with email_to #{params[:envelope][:to]} not found"
 
-      email.status = 'error'
-      email.error_messages = er
+      email.status = 1
+      email.error_messages = msg
       email.save
 
-      raise er
+      raise msg
     else
       email.report = report
 
@@ -28,9 +28,6 @@ class IncomingMailsController < ApplicationController
         raise email.errors.full_messages.join(', ')
       end
     end
-    
-
-
 
   rescue Exception => e
     render plain: 'error', :status => 400

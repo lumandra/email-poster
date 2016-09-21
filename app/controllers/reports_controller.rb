@@ -23,7 +23,7 @@ class ReportsController < ApplicationController
 
 
   def create
-    @report = Report.new(report_params)
+    @report = current_user.reports.build(report_params)
 
     respond_to do |format|
       if @report.save

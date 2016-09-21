@@ -4,8 +4,6 @@ Rails.application.routes.draw do
 
   root to: 'application#index'
   resources :reports
-  resources :user_reports, only: [:index] do
-    post :subscribe
-  end
+
   resources :incoming_mails, only: [:create]
 end

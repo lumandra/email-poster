@@ -5,7 +5,7 @@ class Report < ApplicationRecord
 
   before_validation :ensure_email_to
 
-  has_and_belongs_to_many :users
+  belongs_to :user, optional: true
   has_many :emails
 
   validates :title, presence: true
@@ -14,7 +14,7 @@ class Report < ApplicationRecord
             uniqueness: {message: 'the email address already exists'}
 
   def email_to_prefix
-    email_to.split('@')[0]
+    @email_to_prefix ||= email_to.split('@')[0] rescue nil
   end
 
   private

@@ -13,17 +13,21 @@
 
   <div class="form-group">
     <%= f.label :title %>
-    <%= f.text_field :title, autocomplete: "off", class: "form-control" %>
+    <div class="row">
+      <div class="col-md-6">
+        <%= f.text_field :title, autocomplete: "off", class: "form-control" %>
+      </div>
+    </div>
   </div>
 
   <div class="form-group">
     <%= f.label :email_to %>
     <div class="row">
-      <div class="col-md-6">
+      <div class="col-md-3">
         <%= f.text_field :email_to_prefix, autocomplete: "off", class: "form-control" %>
       </div>
-      <div class="col-md-6">
-        <%= Report::EMAILTO_POSTFIX %>
+      <div class="col-md-3">
+        <h4 class="form-control"><%=Report::EMAILTO_POSTFIX%></h4>
       </div>
     </div>
   </div>
