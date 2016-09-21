@@ -20,15 +20,15 @@
           <td><%= email.created_at %></td>
           <td>
             <% email.attachments.each do |attach| %>
-              <%= attach.file.original_filename %>,
+              <%= attach.file.original_filename %>
             <% end %>
           </td>
           <td>
             <% email.attachments.each do |attach| %>
-                <%= attach.file.content_type %>,
+                <%= attach.file.content_type %>
             <% end %>
           </td>
-          <td><%= email.status %></td>
+          <td><%= email.status_formated %></td>
           <td><%= email.error_message %></td>
         </tr>
       <% end %>
