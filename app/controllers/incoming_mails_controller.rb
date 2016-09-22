@@ -16,7 +16,7 @@ class IncomingMailsController < ApplicationController
       msg = "Report with email_to #{params[:envelope][:to]} not found"
 
       email.status = 1
-      email.error_messages = msg
+      email.error_message = msg
       email.save
 
       raise msg
