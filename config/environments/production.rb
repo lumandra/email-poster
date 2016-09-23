@@ -85,6 +85,9 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   config.action_mailer.default_url_options = { host: 'http://email-post.herokuapp.com/'}
+
+  config.host = "http://email-post.herokuapp.com"
+
   config.action_mailer.delivery_method = :smtp
   ActionMailer::Base.smtp_settings = {
       :user_name => ENV['MAILGUN_SMTP_LOGIN'],

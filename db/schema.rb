@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160921160319) do
+ActiveRecord::Schema.define(version: 20160923092741) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20160921160319) do
     t.integer  "status",        default: 0
     t.string   "error_message"
     t.string   "email_from"
+    t.json     "img_urls"
     t.index ["report_id"], name: "index_emails_on_report_id", using: :btree
   end
 

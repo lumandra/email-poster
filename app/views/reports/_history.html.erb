@@ -19,23 +19,25 @@
           <td><%= email.subject %></td>
           <td><%= email.created_at %></td>
           <td>
-            <% email.attachments.each do |attach| %>
-              <%= attach.file.original_filename %>
+            <% email.img_urls.each do |img| %>
+              <%= img['filename'] %>
             <% end %>
           </td>
           <td>
-            <% email.attachments.each do |attach| %>
-              <%= attach.file.content_type %>
+            <% email.img_urls.each do |img| %>
+                <%= img['type'] %>
             <% end %>
           </td>
           <td><%= email.status_formated %></td>
           <td><%= email.error_message %></td>
         </tr>
-        <% email.attachments.each do |attach| %>
-          <tr>
-            <td colspan="7" style="text-align: center;"><%= user_image attach.url %></td>
-          </tr>
-        <% end %>
+        <% unless email.img_urls.blank? %>
+          <% email.img_urls.each do |img| %>
+            <tr>
+              <td colspan="7" style="text-align: center;"><img src='<%= img['url'] %>' class="img-rounded"></td>
+            </tr>
+          <% end %>
+        <%end%>
       <% end %>
     </tbody>
   </table>

@@ -31,6 +31,7 @@ class IncomingMailsController < ApplicationController
     end
 
   rescue Exception => e
+    p e
     render plain: 'error', :status => 400
   end
 end

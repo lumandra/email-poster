@@ -1,3 +1,6 @@
+require "uri"
+require "net/http"
+
 module ReportsHelper
   def user_images user
     content_tag :div, class: 'row user-images' do
@@ -17,6 +20,8 @@ module ReportsHelper
   private
 
   def image_url image_path
-    request.protocol + request.host_with_port + image_path
+    TestApp::Application.config.host + image_path
   end
 end
+
+
