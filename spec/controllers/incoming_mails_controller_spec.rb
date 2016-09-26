@@ -42,12 +42,26 @@ RSpec.describe IncomingMailsController, type: :controller do
     }
 
     it 'upload emails and ensure report' do
-      process :create, method: :post, params: params
-      expect(response.status).to eq 200
+      VCR.use_cassette('email') do
+        process :create, method: :post, params: params
+        expect(response.status).to eq 200
 
-      user.reload
-      expect(emails.size).to eq 1
-      expect(emails[0].subject).to eq subject
+        user.reload
+        expect(emails.size).to eq 1
+        expect(emails[0].subject).to eq subject
+      end
+    end
+
+    it 'save attachments in filestack cdn' do
+      VCR.use_cassette('img_urls') do
+        process :create, method: :post, params: params
+        expect(response.status).to eq 200
+
+        user.reload
+        expect(emails[0].img_urls.size).to eq 1
+        expect(emails[0].img_urls.last['url'].include?('https://cdn.filestackcontent.com')).to be true
+      end
     end
   end
 end
+

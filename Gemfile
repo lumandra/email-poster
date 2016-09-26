@@ -18,6 +18,8 @@ gem 'bootstrap-sass', '~> 3.3', '>= 3.3.6'
 group :development, :test do
   gem 'rspec-rails', '~> 3.5'
   gem 'factory_girl_rails'
+  gem 'vcr'
+  gem 'webmock'
   gem 'byebug', platform: :mri
 end
 
@@ -35,4 +37,4 @@ end
 
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 gem 'rmagick'
-gem 'filepicker-rails'
+
