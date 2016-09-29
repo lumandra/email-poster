@@ -6,6 +6,7 @@ class Report < ApplicationRecord
   before_validation :ensure_email_to
 
   belongs_to :user, optional: true
+  has_many :slack_channels
   has_many :emails
 
   validates :title, presence: true

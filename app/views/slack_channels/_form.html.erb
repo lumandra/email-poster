@@ -1,0 +1,56 @@
+<%= form_for(slack_channel) do |f| %>
+  <% if slack_channel.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(slack_channel.errors.count, "error") %> prohibited this slack_channel from being saved:</h2>
+
+      <ul>
+      <% slack_channel.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group hidden">
+    <%= f.label :report_id %>
+    <div class="input-group col-md-6">
+      <% unless params[:report_id].present? %>
+          <%= f.text_field :report_id, class: "form-control"%>
+      <% else %>
+          <%= f.text_field :report_id, class: "form-control", value: "#{params[:report_id]}"%>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :title %>
+    <div class="input-group col-md-6">
+      <%= f.text_field :title, autocomplete: "off", class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :webhook_url %>
+    <div class="input-group col-md-6">
+      <%= f.text_field :webhook_url, autocomplete: "off", class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :channel %>
+    <div class="input-group col-md-6">
+      <%= f.text_field :channel, autocomplete: "off", class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :username %>
+    <div class="input-group col-md-6">
+      <%= f.text_field :username, autocomplete: "off", class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="actions">
+    <%= f.submit 'Submit', class: "btn btn-success" %>
+  </div>
+<% end %>

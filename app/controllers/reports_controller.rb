@@ -11,6 +11,7 @@ class ReportsController < ApplicationController
   def show
     @reports = Report.find(params[:id])
     @emails = Email.where(report_id: @reports.id)
+    @slack_channels = SlackChannel.where(report_id: @reports.id)
   end
 
 

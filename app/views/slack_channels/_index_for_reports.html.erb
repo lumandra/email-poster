@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Slack Channels</h1>
+
+<table class="table table-bordered">
+  <thead>
+  <tr>
+    <th>Title</th>
+    <th>Channel</th>
+    <th>Username</th>
+    <th style="width: 29%">Actions</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @slack_channels.each do |slack_channel| %>
+      <tr>
+        <td><%= slack_channel.title %></td>
+        <td><%= slack_channel.channel %></td>
+        <td><%= slack_channel.username %></td>
+        <td>
+          <%= link_to 'Show', slack_channel, class: 'btn btn-primary' %>
+          <%= link_to 'Edit', edit_slack_channel_path(slack_channel), class: 'btn btn-warning' %>
+          <%= link_to 'Destroy', slack_channel, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+        </td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+<br>
+

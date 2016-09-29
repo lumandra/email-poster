@@ -1,0 +1,2 @@
+module SlackChannelsHelper
+end

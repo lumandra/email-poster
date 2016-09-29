@@ -1,0 +1,1 @@
+json.array! @slack_channels, partial: 'slack_channels/slack_channel', as: :slack_channel

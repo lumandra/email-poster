@@ -1,0 +1,1 @@
+json.partial! "slack_channels/slack_channel", slack_channel: @slack_channel

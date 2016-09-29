@@ -1,0 +1,10 @@
+<div class="container reports">
+  <div>
+    <h1>Editing Slack Channel</h1>
+
+    <%= render 'form', slack_channel: @slack_channel %>
+
+    <%= link_to 'Show', slack_channel_path(@slack_channel) %> |
+    <%= link_to 'Back', slack_channel_path %>
+  </div>
+</div>

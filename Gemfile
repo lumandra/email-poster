@@ -37,4 +37,5 @@ end
 
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 gem 'rmagick'
+gem 'slack-notifier'
 
