@@ -8,7 +8,7 @@ RSpec.describe "slack_channels/new", type: :view do
   it "renders new slack_channel form" do
     render
 
-    assert_select "form[action=?][method=?]", slack_channels_path, "post" do
+    assert_select "form[action=?][method=?]", report_slack_channels_path, "post" do
     end
   end
 end

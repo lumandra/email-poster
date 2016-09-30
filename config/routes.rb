@@ -4,10 +4,8 @@ Rails.application.routes.draw do
 
   root to: 'application#index'
   resources :reports do
-    resources :slack_channels, only: [:new]
+    resources :slack_channels
   end
-
-  resources :slack_channels, only: [:show, :edit, :update, :destroy, :index, :create]
 
   resources :incoming_mails, only: [:create]
 end

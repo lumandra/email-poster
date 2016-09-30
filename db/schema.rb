@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160928103357) do
+ActiveRecord::Schema.define(version: 20160930090117) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,11 +39,10 @@ ActiveRecord::Schema.define(version: 20160928103357) do
 
   create_table "slack_channels", force: :cascade do |t|
     t.string   "webhook_url"
-    t.string   "channel"
-    t.string   "username"
     t.integer  "report_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.text     "slack_message_text"
   end
 
   create_table "users", force: :cascade do |t|

@@ -1,0 +1,24 @@
+<h1>Slack Channels</h1>
+
+<table class="table table-bordered">
+  <thead>
+  <tr>
+    <th>Webhook url</th>
+    <th style="width: 14%">Actions</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @slack_channels.each do |slack_channel| %>
+      <tr>
+        <td><%= slack_channel.webhook_url %></td>
+        <td>
+          <%= link_to 'Show', edit_report_slack_channel_path(@report_id, slack_channel), class: 'btn btn-primary' %>
+          <%= link_to 'Destroy', report_slack_channel_path(@report_id, slack_channel), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+        </td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+<br>
+

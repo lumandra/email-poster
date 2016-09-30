@@ -2,21 +2,21 @@
     <div id='notice' class="alert alert-success"><%= notice %></div>
 <%end%>
 <div class="container reports">
-  <div class="col-sm-4">
+  <div>
     <h1 class="title">Show report</h1>
-      <h4>Title: <%= @reports.title%></h4>
-      <h4>Email to: <%= @reports.email_to%></h4>
+      <h4>Title: <%= @report.title%></h4>
+      <h4>Email to: <%= @report.email_to%></h4>
     </br>
     <div class="actions">
-      <%= link_to 'Edit', edit_report_path(@reports), class: 'btn btn-warning' %>
-      <%= link_to 'Destroy', @reports, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+      <%= link_to 'Edit', edit_report_path(@report), class: 'btn btn-warning' %>
+      <%= link_to 'Destroy', @report, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
       <%= link_to 'Back', reports_path%>
     </div>
   </div>
-  <div class="col-sm-8">
-    <%= render 'slack_channels/index_for_reports' %>
-    <%= link_to 'New Slack Channel', new_report_slack_channel_path(@reports.id), class: "btn btn-success"   %>
+  <div>
+    <%= render 'slack_channels/index' %>
+    <%= link_to 'New Slack Channel', new_report_slack_channel_path(@report.id), class: "btn btn-success"   %>
   </div>
 </div>
-<%= render 'history',  reports: @reports, emails: @emails%>
+<%= render 'history', reports: @report, emails: @emails%>
 
