@@ -22,7 +22,7 @@ class SlackChannelsController < ApplicationController
 
     respond_to do |format|
       if @slack_channel.save
-        format.html { redirect_to report_path(@slack_channel.report_id), notice: 'Slack channel was successfully created.' }
+        format.html { redirect_to report_path(@slack_channel.report_id), flash: { success: 'Slack channel was successfully created.' } }
         format.json { render :show, status: :created, location: @slack_channel }
       else
         format.html { render :new }
@@ -34,7 +34,7 @@ class SlackChannelsController < ApplicationController
   def update
     respond_to do |format|
       if @slack_channel.update(slack_channel_params)
-        format.html { redirect_to report_path(@slack_channel.report_id), notice: 'Slack channel was successfully updated.' }
+        format.html { redirect_to report_path(@slack_channel.report_id), flash: { success: 'Slack channel was successfully updated.' } }
         format.json { render :show, status: :ok, location: @slack_channel }
       else
         format.html { render :edit }
@@ -47,7 +47,7 @@ class SlackChannelsController < ApplicationController
     report_id = @slack_channel.report_id
     @slack_channel.destroy
     respond_to do |format|
-      format.html { redirect_to report_path(report_id), notice: 'Slack channel was successfully destroyed.' }
+      format.html { redirect_to report_path(report_id), flash: { success: 'Slack channel was successfully destroyed.' } }
       format.json { head :no_content }
     end
   end
