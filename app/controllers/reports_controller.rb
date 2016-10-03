@@ -4,7 +4,7 @@ class ReportsController < ApplicationController
 
 
   def index
-    @reports = Report.all
+    @reports = current_user.reports
   end
 
 
@@ -64,6 +64,7 @@ class ReportsController < ApplicationController
 
     def set_report
       @report = Report.find(params[:id])
+      authorize! :manage, @report
     end
 
     def report_params

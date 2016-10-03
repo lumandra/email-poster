@@ -8,4 +8,5 @@ class User < ApplicationRecord
 
   has_many :reports
   has_many :emails, through: :reports
+  has_many :slack_channels, through: :reports
 end

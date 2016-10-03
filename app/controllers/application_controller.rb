@@ -10,4 +10,9 @@ class ApplicationController < ActionController::Base
     new_user_session_path
   end
 
+  rescue_from CanCan::AccessDenied do |exception|
+    flash[:warning] = exception.message
+    redirect_to reports_path
+  end
+
 end
