@@ -54,7 +54,8 @@ RSpec.describe SlackChannelsController, type: :controller do
 
   describe "GET #new" do
     it "assigns a new slack_channel as @slack_channel" do
-      get :new, params: {}, session: valid_session
+      report = Report.create! valid_attributes
+      get :new, params: {report_id: report.to_param}, session: valid_session
       expect(assigns(:slack_channel)).to be_a_new(SlackChannel)
     end
   end

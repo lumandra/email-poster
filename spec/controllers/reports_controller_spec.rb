@@ -19,7 +19,7 @@ RSpec.describe ReportsController, type: :controller do
 
       get :show, params: { id: @report }
       expect(response.status).to eq 200
-      expect(controller.instance_values['reports'][:id]).to eq @report.id
+      expect(controller.instance_values['report'][:id]).to eq @report.id
     end
   end
 
