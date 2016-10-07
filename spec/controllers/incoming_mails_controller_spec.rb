@@ -8,7 +8,8 @@ RSpec.describe IncomingMailsController, type: :controller do
     let!(:from) { 'pecha7x@gmail.com' }
     let!(:to)   { '69f605a02e17db7923e8' }
 
-    let!(:pdf)       { fixture_file_upload('test_pdf.pdf', 'application/pdf') }
+    let!(:pdf)       { fixture_file_upload('test2_pdf.pdf', 'application/pdf') }
+    let!(:pdf2)       { fixture_file_upload('test_pdf.pdf', 'application/pdf') }
     let!(:user)      { FactoryGirl.create :user, email: from, confirmed_at: DateTime.now }
     let!(:report)    { FactoryGirl.create :report, email_to: to , user_id: user.id }
 
@@ -36,7 +37,8 @@ RSpec.describe IncomingMailsController, type: :controller do
          "spf"=>{"result"=>"neutral", "domain"=>"gmail.com"}
        },
        "attachments" => {
-           "0"=> pdf
+           "0"=> pdf,
+           "1"=> pdf2
        }
       }
     }
@@ -58,7 +60,7 @@ RSpec.describe IncomingMailsController, type: :controller do
         expect(response.status).to eq 200
 
         user.reload
-        expect(emails[0].img_urls.size).to eq 1
+        expect(emails[0].img_urls.size).to eq 4
         expect(emails[0].img_urls.last['url'].include?('https://cdn.filestackcontent.com')).to be true
       end
     end

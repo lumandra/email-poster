@@ -5,7 +5,7 @@ http_interactions:
     uri: https://www.filestackapi.com/api/store/S3?key=AmDGGpy17Tra981Hbnqjaz
     body:
       encoding: US-ASCII
-      string: url=https%3A%2F%2Fprocess.filestackapi.com%2FAS6blLW1pSyaEm0kfBKmEz%2Foutput%3Dformat%3Ajpg%2Cdensity%3A30%2Fhttp%3A%2F%2Fbf6edc00.ngrok.io%2Fuploads%2Ftmp%2F1474884510-22460-0001-3456%2Ftest_pdf.pdf
+      string: url=https%3A%2F%2Fprocess.filestackapi.com%2FAS6blLW1pSyaEm0kfBKmEz%2Foutput%3Dformat%3Ajpg%2Cdensity%3A108%2Cpage%3A1%2Fhttp%3A%2F%2F1e40cefa.ngrok.io%2Fuploads%2Ftmp%2F1475849048-30168-0001-6740%2Ftest2_pdf.pdf
     headers:
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
@@ -34,7 +34,224 @@ http_interactions:
       Content-Type:
       - application/json
       Date:
-      - Mon, 26 Sep 2016 10:08:33 GMT
+      - Fri, 07 Oct 2016 14:04:12 GMT
+      P3p:
+      - CP="OTI DSP COR ADM DEV TAIo PSA PSD IVAi IVDi CONi HIS OUR IND CNT COM INT
+        NAV"
+      Server:
+      - nginx
+      Set-Cookie:
+      - session=-; Domain=.filestackapi.com; expires=Thu, 01-Jan-1970 00:00:00 GMT;
+        Path=/
+      X-No-Compress:
+      - 'true'
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+    body:
+      encoding: ASCII-8BIT
+      string: '{"container": "files.production.s3.emailposter.co", "url": "https://cdn.filestackcontent.com/FHGCK6gRuadK0WMK8mtD",
+        "filename": "test2_.jpg", "key": "VUjr3gDTMSV8SHH0v7MP_test2_.jpg", "type":
+        "image/jpeg", "size": 105881}'
+    http_version: 
+  recorded_at: Fri, 07 Oct 2016 14:04:12 GMT
+- request:
+    method: post
+    uri: https://www.filestackapi.com/api/store/S3?key=AmDGGpy17Tra981Hbnqjaz
+    body:
+      encoding: US-ASCII
+      string: url=https%3A%2F%2Fprocess.filestackapi.com%2FAS6blLW1pSyaEm0kfBKmEz%2Foutput%3Dformat%3Ajpg%2Cdensity%3A108%2Cpage%3A2%2Fhttp%3A%2F%2F1e40cefa.ngrok.io%2Fuploads%2Ftmp%2F1475849048-30168-0001-6740%2Ftest2_pdf.pdf
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - www.filestackapi.com
+      Content-Type:
+      - application/x-www-form-urlencoded
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Headers:
+      - Access-Control-Allow-Origin, Access-Control-Allow-Methods, Access-Control-Allow-Headers,
+        Origin, X-File-Name, Key, Content-Type, X-Requested-With, Origin, X-NO-STREAM
+      Access-Control-Allow-Methods:
+      - GET, POST, OPTIONS, DELETE, PUT
+      Access-Control-Max-Age:
+      - '21600'
+      Content-Type:
+      - application/json
+      Date:
+      - Fri, 07 Oct 2016 14:04:15 GMT
+      P3p:
+      - CP="OTI DSP COR ADM DEV TAIo PSA PSD IVAi IVDi CONi HIS OUR IND CNT COM INT
+        NAV"
+      Server:
+      - nginx
+      Set-Cookie:
+      - session=-; Domain=.filestackapi.com; expires=Thu, 01-Jan-1970 00:00:00 GMT;
+        Path=/
+      X-No-Compress:
+      - 'true'
+      Content-Length:
+      - '193'
+      Connection:
+      - keep-alive
+    body:
+      encoding: ASCII-8BIT
+      string: '{"container": "files.production.s3.emailposter.co", "url": "https://cdn.filestackcontent.com/932b7T8TXG8hVoGFisw0",
+        "filename": "test2_.jpg", "key": "FkaF3MaWTvqYCOzf7Aa1_test2_.jpg", "type":
+        "image/jpeg", "size": 89429}'
+    http_version: 
+  recorded_at: Fri, 07 Oct 2016 14:04:16 GMT
+- request:
+    method: post
+    uri: https://www.filestackapi.com/api/store/S3?key=AmDGGpy17Tra981Hbnqjaz
+    body:
+      encoding: US-ASCII
+      string: url=https%3A%2F%2Fprocess.filestackapi.com%2FAS6blLW1pSyaEm0kfBKmEz%2Foutput%3Dformat%3Ajpg%2Cdensity%3A108%2Cpage%3A3%2Fhttp%3A%2F%2F1e40cefa.ngrok.io%2Fuploads%2Ftmp%2F1475849048-30168-0001-6740%2Ftest2_pdf.pdf
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - www.filestackapi.com
+      Content-Type:
+      - application/x-www-form-urlencoded
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Headers:
+      - Access-Control-Allow-Origin, Access-Control-Allow-Methods, Access-Control-Allow-Headers,
+        Origin, X-File-Name, Key, Content-Type, X-Requested-With, Origin, X-NO-STREAM
+      Access-Control-Allow-Methods:
+      - GET, POST, OPTIONS, DELETE, PUT
+      Access-Control-Max-Age:
+      - '21600'
+      Content-Type:
+      - application/json
+      Date:
+      - Fri, 07 Oct 2016 14:04:19 GMT
+      P3p:
+      - CP="OTI DSP COR ADM DEV TAIo PSA PSD IVAi IVDi CONi HIS OUR IND CNT COM INT
+        NAV"
+      Server:
+      - nginx
+      Set-Cookie:
+      - session=-; Domain=.filestackapi.com; expires=Thu, 01-Jan-1970 00:00:00 GMT;
+        Path=/
+      X-No-Compress:
+      - 'true'
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+    body:
+      encoding: ASCII-8BIT
+      string: '{"container": "files.production.s3.emailposter.co", "url": "https://cdn.filestackcontent.com/T5zBoffiRQSZ1aFBQAye",
+        "filename": "test2_.jpg", "key": "VzCW7dQUmelZpgUA2jrw_test2_.jpg", "type":
+        "image/jpeg", "size": 27050}'
+    http_version: 
+  recorded_at: Fri, 07 Oct 2016 14:04:19 GMT
+- request:
+    method: post
+    uri: https://www.filestackapi.com/api/store/S3?key=AmDGGpy17Tra981Hbnqjaz
+    body:
+      encoding: US-ASCII
+      string: url=https%3A%2F%2Fprocess.filestackapi.com%2FAS6blLW1pSyaEm0kfBKmEz%2Foutput%3Dformat%3Ajpg%2Cdensity%3A108%2Cpage%3A4%2Fhttp%3A%2F%2F1e40cefa.ngrok.io%2Fuploads%2Ftmp%2F1475849048-30168-0001-6740%2Ftest2_pdf.pdf
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - www.filestackapi.com
+      Content-Type:
+      - application/x-www-form-urlencoded
+  response:
+    status:
+      code: 400
+      message: BAD REQUEST
+    headers:
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Headers:
+      - Access-Control-Allow-Origin, Access-Control-Allow-Methods, Access-Control-Allow-Headers,
+        Origin, X-File-Name, Key, Content-Type, X-Requested-With, Origin, X-NO-STREAM
+      Access-Control-Allow-Methods:
+      - GET, POST, OPTIONS, DELETE, PUT
+      Access-Control-Max-Age:
+      - '21600'
+      Content-Type:
+      - text/html; charset=utf-8
+      Date:
+      - Fri, 07 Oct 2016 14:04:22 GMT
+      Server:
+      - nginx
+      Set-Cookie:
+      - session=-; Domain=.filestackapi.com; expires=Thu, 01-Jan-1970 00:00:00 GMT;
+        Path=/
+      Content-Length:
+      - '236'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: "[uuid=D074C3DB64AE48E7] Invalid response when trying to read from https://process.filestackapi.com/AS6blLW1pSyaEm0kfBKmEz/output=format:jpg,density:108,page:4/http://1e40cefa.ngrok.io/uploads/tmp/1475849048-30168-0001-6740/test2_pdf.pdf"
+    http_version: 
+  recorded_at: Fri, 07 Oct 2016 14:04:22 GMT
+- request:
+    method: post
+    uri: https://www.filestackapi.com/api/store/S3?key=AmDGGpy17Tra981Hbnqjaz
+    body:
+      encoding: US-ASCII
+      string: url=https%3A%2F%2Fprocess.filestackapi.com%2FAS6blLW1pSyaEm0kfBKmEz%2Foutput%3Dformat%3Ajpg%2Cdensity%3A108%2Cpage%3A1%2Fhttp%3A%2F%2F1e40cefa.ngrok.io%2Fuploads%2Ftmp%2F1475849048-30168-0002-2421%2Ftest_pdf.pdf
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - www.filestackapi.com
+      Content-Type:
+      - application/x-www-form-urlencoded
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Headers:
+      - Access-Control-Allow-Origin, Access-Control-Allow-Methods, Access-Control-Allow-Headers,
+        Origin, X-File-Name, Key, Content-Type, X-Requested-With, Origin, X-NO-STREAM
+      Access-Control-Allow-Methods:
+      - GET, POST, OPTIONS, DELETE, PUT
+      Access-Control-Max-Age:
+      - '21600'
+      Content-Type:
+      - application/json
+      Date:
+      - Fri, 07 Oct 2016 14:04:25 GMT
       P3p:
       - CP="OTI DSP COR ADM DEV TAIo PSA PSD IVAi IVDi CONi HIS OUR IND CNT COM INT
         NAV"
@@ -49,9 +266,58 @@ http_interactions:
       - keep-alive
     body:
       encoding: ASCII-8BIT
-      string: '{"container": "files.production.s3.emailposter.co", "url": "https://cdn.filestackcontent.com/AaKYEtjSQHG2hfkCXVRQ",
-        "filename": "test_.jpg", "key": "GvJfjtfvSSifa9KZW9m6_test_.jpg", "type":
-        "image/jpeg", "size": 1604}'
+      string: '{"container": "files.production.s3.emailposter.co", "url": "https://cdn.filestackcontent.com/QoNb6h2RrGNJ9K6v96oS",
+        "filename": "test_.jpg", "key": "nwAIj1XoSIiKvJGaYoGK_test_.jpg", "type":
+        "image/jpeg", "size": 9424}'
     http_version: 
-  recorded_at: Mon, 26 Sep 2016 10:08:33 GMT
+  recorded_at: Fri, 07 Oct 2016 14:04:25 GMT
+- request:
+    method: post
+    uri: https://www.filestackapi.com/api/store/S3?key=AmDGGpy17Tra981Hbnqjaz
+    body:
+      encoding: US-ASCII
+      string: url=https%3A%2F%2Fprocess.filestackapi.com%2FAS6blLW1pSyaEm0kfBKmEz%2Foutput%3Dformat%3Ajpg%2Cdensity%3A108%2Cpage%3A2%2Fhttp%3A%2F%2F1e40cefa.ngrok.io%2Fuploads%2Ftmp%2F1475849048-30168-0002-2421%2Ftest_pdf.pdf
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - www.filestackapi.com
+      Content-Type:
+      - application/x-www-form-urlencoded
+  response:
+    status:
+      code: 400
+      message: BAD REQUEST
+    headers:
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Headers:
+      - Access-Control-Allow-Origin, Access-Control-Allow-Methods, Access-Control-Allow-Headers,
+        Origin, X-File-Name, Key, Content-Type, X-Requested-With, Origin, X-NO-STREAM
+      Access-Control-Allow-Methods:
+      - GET, POST, OPTIONS, DELETE, PUT
+      Access-Control-Max-Age:
+      - '21600'
+      Content-Type:
+      - text/html; charset=utf-8
+      Date:
+      - Fri, 07 Oct 2016 14:04:28 GMT
+      Server:
+      - nginx
+      Set-Cookie:
+      - session=-; Domain=.filestackapi.com; expires=Thu, 01-Jan-1970 00:00:00 GMT;
+        Path=/
+      Content-Length:
+      - '235'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: "[uuid=132159DD91034DBD] Invalid response when trying to read from https://process.filestackapi.com/AS6blLW1pSyaEm0kfBKmEz/output=format:jpg,density:108,page:2/http://1e40cefa.ngrok.io/uploads/tmp/1475849048-30168-0002-2421/test_pdf.pdf"
+    http_version: 
+  recorded_at: Fri, 07 Oct 2016 14:04:28 GMT
 recorded_with: VCR 3.0.3
