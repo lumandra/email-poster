@@ -33,7 +33,7 @@ class FileStackIntegration
   end
 
   def parse_page page_number, attach
-    params = {url: "https://process.filestackapi.com/AS6blLW1pSyaEm0kfBKmEz/output=format:jpg,density:108,page:#{page_number}/#{image_url(attach.url)}"}
+    params = {url: "https://process.filestackapi.com/#{TestApp::Application.config.filestack_api_secret}/output=format:jpg,density:108,page:#{page_number}/#{image_url(attach.url)}"}
     Net::HTTP.post_form(URI.parse("https://www.filestackapi.com/api/store/S3?key=#{TestApp::Application.config.filestack_api_secret}"), params)
   end
 

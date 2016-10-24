@@ -13,7 +13,7 @@ module ReportsHelper
   end
 
   def user_image image_path
-    image_tag "https://process.filestackapi.com/AS6blLW1pSyaEm0kfBKmEz/output=format:jpg,density:30/#{image_url(image_path)}",
+    image_tag "https://process.filestackapi.com/#{TestApp::Application.config.filestack_api_secret}/output=format:jpg,density:30/#{image_url(image_path)}",
               class: 'img-rounded'
   end
 
