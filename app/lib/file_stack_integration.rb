@@ -4,6 +4,8 @@ require 'open-uri'
 
 class FileStackIntegration
 
+  PAGE_LIMIT=5
+
   def initialize email
     @email = email
   end
@@ -25,7 +27,7 @@ class FileStackIntegration
     page_number = 1
     response = parse_page page_number, attach
 
-    while response.body.scan('Invalid response').blank?
+    while (response.body.scan('Invalid response').blank? || page_number < PAGE_LIMIT)
       @email.img_urls << JSON.parse(response.body.gsub('=>', ':'))
       page_number += 1
       response = parse_page page_number, attach
