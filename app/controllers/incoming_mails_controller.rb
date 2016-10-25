@@ -1,6 +1,7 @@
 class IncomingMailsController < ApplicationController
   skip_before_action :verify_authenticity_token
   skip_before_action :authenticate_user!
+  before_action :only_pdfs_attachments!
 
   def create
     email = Email.new(
@@ -9,8 +10,6 @@ class IncomingMailsController < ApplicationController
         attachments: params[:attachments].values,
         email_from:  params[:envelope][:from]
     )
-
-    Rails.logger.info "Email body - #{params.inspect}"
 
     report = Report.find_by(email_to: params[:envelope][:to])
 
@@ -35,6 +34,13 @@ class IncomingMailsController < ApplicationController
   rescue Exception => e
     p e
     render plain: 'error', :status => 400
+  end
+
+
+  private
+
+  def only_pdfs_attachments!
+    params[:attachments].delete_if { |key, value| value.content_type != 'application/pdf' } if params[:attachments].present?
   end
 
 end

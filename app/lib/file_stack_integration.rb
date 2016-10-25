@@ -14,7 +14,7 @@ class FileStackIntegration
     @email.attachments.each do |attach|
       parsing_all_pages(attach)
     end
-      @email.save
+    @email.save
   end
 
   private
