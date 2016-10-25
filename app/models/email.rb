@@ -4,6 +4,7 @@ class Email < ApplicationRecord
 
   enum status: [ :success, :error ]
   serialize :img_urls, Array
+  serialize :images, Array
 
   mount_uploaders :attachments, BaseUploader
 
@@ -18,7 +19,7 @@ class Email < ApplicationRecord
   private
 
   def filestack_save
-    FileStackIntegration.new(self).save_img
+    FileStackIntegration.new(self).save_images
   end
 
   def slack_channel

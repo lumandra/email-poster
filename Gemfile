@@ -40,4 +40,5 @@ gem 'rmagick'
 gem 'slack-notifier'
 
 gem 'cancancan', '~> 1.10'
+gem 'pdf-reader'
 

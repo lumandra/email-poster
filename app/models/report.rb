@@ -3,6 +3,8 @@ class Report < ApplicationRecord
 
   attr_writer :email_to_prefix
 
+  enum processing_type: [:pdf, :body]
+
   before_validation :ensure_email_to
 
   belongs_to :user, optional: true

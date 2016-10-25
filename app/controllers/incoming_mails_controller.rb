@@ -1,14 +1,14 @@
 class IncomingMailsController < ApplicationController
   skip_before_action :verify_authenticity_token
   skip_before_action :authenticate_user!
-  before_action :only_pdfs_attachments!
 
   def create
     email = Email.new(
         subject:     params[:headers]['Subject'],
         body:        params[:plain],
-        attachments: params[:attachments].values,
-        email_from:  params[:envelope][:from]
+        attachments: attachments,
+        email_from:  params[:envelope][:from],
+        images:      images_from_html
     )
 
     report = Report.find_by(email_to: params[:envelope][:to])
@@ -39,8 +39,12 @@ class IncomingMailsController < ApplicationController
 
   private
 
-  def only_pdfs_attachments!
-    params[:attachments].delete_if { |key, value| value.content_type != 'application/pdf' } if params[:attachments].present?
+  def images_from_html
+    params[:html].scan(/img.*?src=\"(.*?)\"/i).map{|v| v[0]}
+  end
+
+  def attachments
+    params[:attachments].present? ? params[:attachments].values : []
   end
 
 end
