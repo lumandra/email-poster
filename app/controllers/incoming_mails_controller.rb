@@ -10,6 +10,8 @@ class IncomingMailsController < ApplicationController
         email_from:  params[:envelope][:from]
     )
 
+    Rails.logger.info "Email body - #{params.inspect}"
+
     report = Report.find_by(email_to: params[:envelope][:to])
 
     if report.blank?
