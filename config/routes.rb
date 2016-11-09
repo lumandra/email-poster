@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   root to: 'application#index'
   resources :reports do
     resources :slack_channels
+    get 'slack_webhook_determination', on: :collection
   end
 
   resources :incoming_mails, only: [:create]

@@ -23,7 +23,7 @@ class Email < ApplicationRecord
   end
 
   def slack_channel
-    SlackChannelIntegration.new(self).create_notify
+    SlackIntegration::Channel.new(self).create_notify
   end
 
 end

@@ -1,7 +1,7 @@
 class ReportsController < ApplicationController
   # before_action :check_admin
   before_action :set_report, only: [:show, :edit, :update, :destroy]
-
+  before_filter :set_report_id, only: [:show]
 
   def index
     @reports = current_user.reports
@@ -60,6 +60,15 @@ class ReportsController < ApplicationController
     end
   end
 
+  def slack_webhook_determination
+    if params[:code].present?
+      SlackIntegration.new.determine_webhook(cookies[:report], params[:code])
+      redirect_to report_path(cookies[:report])
+    else
+      redirect_to root_path
+    end
+  end
+
   private
 
     def set_report
@@ -74,4 +83,9 @@ class ReportsController < ApplicationController
     def check_admin
       redirect_to root_path unless current_user.is_admin
     end
+
+    def set_report_id
+      cookies[:report] = { value: params[:id] }
+    end
+
 end
