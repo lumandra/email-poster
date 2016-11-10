@@ -40,5 +40,5 @@ Rails.application.configure do
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 
-  config.host = "http://1e40cefa.ngrok.io"
+  config.host = "http://d13b663d.ngrok.io"
 end

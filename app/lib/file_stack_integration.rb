@@ -17,7 +17,7 @@ class FileStackIntegration
         process_pdf(attach)
       end
     else
-      @email.images.each{ |image| process_image(image) }
+      convert_html_to_image
     end
     @email.save
   end
@@ -58,6 +58,20 @@ class FileStackIntegration
 
   def process_url
     "https://process.filestackapi.com/#{TestApp::Application.config.filestack_api_secret}/output=format:jpg,density:108"
+  end
+
+  def convert_html_to_image
+    file = Tempfile.new(["template_#{@email.id}", '.jpg'], 'public/uploads/images', :encoding => 'ascii-8bit')
+    file.write(IMGKit.new(@email.html,  width: 580).to_jpg)
+    file.flush
+
+    process_image(image_url(file.path))
+    file.unlink
+  end
+
+  def image_url url
+    url.slice!('public')
+    attach_url(url)
   end
 
 end

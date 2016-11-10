@@ -8,7 +8,7 @@ class IncomingMailsController < ApplicationController
         body:        params[:plain],
         attachments: attachments,
         email_from:  params[:envelope][:from],
-        images:      images_from_html
+        html:        params[:html]
     )
 
     report = Report.find_by(email_to: params[:envelope][:to])
@@ -38,10 +38,6 @@ class IncomingMailsController < ApplicationController
 
 
   private
-
-  def images_from_html
-    params[:html].scan(/img.*?src=\"(.*?)\"/i).map{|v| v[0]}
-  end
 
   def attachments
     params[:attachments].present? ? params[:attachments].values : []

@@ -1,0 +1,59 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://www.filestackapi.com/api/store/S3?key=AmDGGpy17Tra981Hbnqjaz
+    body:
+      encoding: US-ASCII
+      string: url=https%3A%2F%2Fprocess.filestackapi.com%2FAmDGGpy17Tra981Hbnqjaz%2Foutput%3Dformat%3Ajpg%2Cdensity%3A108%2Fhttp%3A%2F%2Fd13b663d.ngrok.io%2Fuploads%2Fimages%2Ftemplate_120161110-46366-zf7ei2.jpg
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - www.filestackapi.com
+      Content-Type:
+      - application/x-www-form-urlencoded
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Headers:
+      - Access-Control-Allow-Origin, Access-Control-Allow-Methods, Access-Control-Allow-Headers,
+        Origin, X-File-Name, Key, Content-Type, X-Requested-With, Origin, X-NO-STREAM
+      Access-Control-Allow-Methods:
+      - GET, POST, OPTIONS, DELETE, PUT
+      Access-Control-Max-Age:
+      - '21600'
+      Content-Type:
+      - application/json
+      Date:
+      - Thu, 10 Nov 2016 14:39:30 GMT
+      P3p:
+      - CP="OTI DSP COR ADM DEV TAIo PSA PSD IVAi IVDi CONi HIS OUR IND CNT COM INT
+        NAV"
+      Server:
+      - nginx
+      Set-Cookie:
+      - session=-; Domain=.filestackapi.com; expires=Thu, 01-Jan-1970 00:00:00 GMT;
+        Path=/
+      X-No-Compress:
+      - 'true'
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+    body:
+      encoding: ASCII-8BIT
+      string: '{"container": "files.production.s3.emailposter.co", "url": "https://cdn.filestackcontent.com/QysBObUWTwqQrcF3I3CO",
+        "filename": "template_120161110-46366-zf7ei2.jpg", "key": "JanR3r5ESxyGPCUYOtcq_template_120161110-46366-zf7ei2.jpg",
+        "type": "image/jpeg", "size": 187566}'
+    http_version: 
+  recorded_at: Thu, 10 Nov 2016 14:39:30 GMT
+recorded_with: VCR 3.0.3

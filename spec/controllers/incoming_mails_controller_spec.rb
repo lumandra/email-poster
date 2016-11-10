@@ -9,7 +9,7 @@ RSpec.describe IncomingMailsController, type: :controller do
     let!(:to)   { '69f605a02e17db7923e8' }
 
     let!(:pdf)       { fixture_file_upload('test2_pdf.pdf', 'application/pdf') }
-    let!(:pdf2)       { fixture_file_upload('test_pdf.pdf', 'application/pdf') }
+    let!(:pdf2)      { fixture_file_upload('test_pdf.pdf', 'application/pdf') }
     let!(:user)      { FactoryGirl.create :user, email: from, confirmed_at: DateTime.now }
     let!(:report)    { FactoryGirl.create :report, email_to: to , user_id: user.id }
 
@@ -65,6 +65,21 @@ RSpec.describe IncomingMailsController, type: :controller do
 
         user.reload
         expect(emails[0].img_urls.size).to eq 4
+        expect(emails[0].img_urls.last['url'].include?('https://cdn.filestackcontent.com')).to be true
+      end
+    end
+
+    it 'convert html to image' do
+      VCR.use_cassette('html_convert') do
+        report = Report.last
+        report.processing_type = 1
+        report.save
+
+        process :create, method: :post, params: params
+        expect(response.status).to eq 200
+
+        user.reload
+        expect(emails.size).to eq 1
         expect(emails[0].img_urls.last['url'].include?('https://cdn.filestackcontent.com')).to be true
       end
     end
